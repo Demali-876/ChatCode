@@ -1,0 +1,123 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    ADD
+    ADDRESS
+    ADDRESS_LITERAL
+    BOOL
+    COMMA
+    CONTRACT
+    DIVIDE
+    EMIT
+    EQUIVALENT
+    EVENT
+    EXTERNAL
+    FUNCTION
+    GREATERTHAN
+    GREATERTHANOREQUAL
+    INT
+    INTERNAL
+    LESSTHAN
+    LESSTHANOREQUAL
+    MULTIPLY
+    NOTEQUAL
+    NUMBER
+    PRINT
+    PRIVATE
+    PUBLIC
+    RETURN
+    RETURNS
+    STRING
+    STRING_LITERAL
+    SUBTRACT
+    TYPE_SPECIFIER
+    VISIBILITY
+
+Grammar
+
+Rule 0     S' -> program
+Rule 1     program -> statement_list
+Rule 2     statement_list -> statement statement_list
+Rule 3     statement_list -> statement
+Rule 4     statement -> assignment
+Rule 5     statement -> if_statement
+Rule 6     statement -> loop
+Rule 7     statement -> display
+Rule 8     statement -> return_statement
+Rule 9     statement -> contract_declaration
+Rule 10    assignment -> VAR IDENTIFIER EQUAL expression SEMICOLON
+Rule 11    assignment -> IDENTIFIER EQUAL expression SEMICOLON
+Rule 12    if_statement -> IF OPENPAREN condition CLOSEPAREN THEN CURLYOPENINGPAREN statement_list CURLYCLOSINGPAREN ELSE CURLYOPENINGPAREN statement_list CURLYCLOSINGPAREN END
+Rule 13    if_statement -> IF OPENPAREN condition CLOSEPAREN THEN CURLYOPENINGPAREN statement_list CURLYCLOSINGPAREN END
+Rule 14    loop -> for_loop
+Rule 15    loop -> while_loop
+Rule 16    for_loop -> FOR OPENPAREN assignment condition SEMICOLON assignment CLOSEPAREN DO CURLYOPENINGPAREN statement_list CURLYCLOSINGPAREN END
+Rule 17    while_loop -> WHILE OPENPAREN condition CLOSEPAREN DO CURLYOPENINGPAREN statement_list CURLYCLOSINGPAREN END
+
+Terminals, with rules where they appear
+
+ADD                  : 
+ADDRESS              : 
+ADDRESS_LITERAL      : 
+BOOL                 : 
+CLOSEPAREN           : 12 13 16 17
+COMMA                : 
+CONTRACT             : 
+CURLYCLOSINGPAREN    : 12 12 13 16 17
+CURLYOPENINGPAREN    : 12 12 13 16 17
+DIVIDE               : 
+DO                   : 16 17
+ELSE                 : 12
+EMIT                 : 
+END                  : 12 13 16 17
+EQUAL                : 10 11
+EQUIVALENT           : 
+EVENT                : 
+EXTERNAL             : 
+FOR                  : 16
+FUNCTION             : 
+GREATERTHAN          : 
+GREATERTHANOREQUAL   : 
+IDENTIFIER           : 10 11
+IF                   : 12 13
+INT                  : 
+INTERNAL             : 
+LESSTHAN             : 
+LESSTHANOREQUAL      : 
+MULTIPLY             : 
+NOTEQUAL             : 
+NUMBER               : 
+OPENPAREN            : 12 13 16 17
+PRINT                : 
+PRIVATE              : 
+PUBLIC               : 
+RETURN               : 
+RETURNS              : 
+SEMICOLON            : 10 11 16
+STRING               : 
+STRING_LITERAL       : 
+SUBTRACT             : 
+THEN                 : 12 13
+TYPE_SPECIFIER       : 
+VAR                  : 10
+VISIBILITY           : 
+WHILE                : 17
+error                : 
+
+Nonterminals, with rules where they appear
+
+assignment           : 4 16 16
+condition            : 12 13 16 17
+contract_declaration : 9
+display              : 7
+expression           : 10 11
+for_loop             : 14
+if_statement         : 5
+loop                 : 6
+program              : 0
+return_statement     : 8
+statement            : 2 3
+statement_list       : 1 2 12 12 13 16 17
+while_loop           : 15
+
